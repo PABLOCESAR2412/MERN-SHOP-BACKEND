@@ -1,59 +1,56 @@
+import{User} from './usuario';
+import{OrderItem} from './orderItem';
 import mongoose from 'mongoose';
-import{Categoria} from './categoria';
 
-const productSchema = new mongoose.Schema({
+const orderSchema = new mongoose.Schema({
     id: {
         type: String,
         require: true,
     },
-    name: {
-        type: String,
+    orderItems: {
+        type: OrderItem,
         require: true,
     },
-    descripcion: {
+    shippingAddress1: {
         type: String,
         default: ''
     },
-    richDescripcion: {
+    shippingAddress2: {
         type: String,
         default: ''
     },
-    image: {
+    city: {
         type: String,
         default: ''
     },
-    images: {
+    zip: {
         type: String,
         default: ''
     },
-    brand: {
+    country: {
         type: String,
         default: ''
     },
-    price: {
+    phone: {
         type: Number,
         default: ''
     },
-    category: {
-        type: Categoria,
+    status: {
+        type: String,
         default: ''
     },
-    countlnStock: {
+    totalPrace: {
         type: Number,
         default: ''
     },
-    rating: {
-        type: Number,
+    user: {
+        type: User,
         default: ''
     },
-    isFeatured: {
-        type: Boolean,
-        default: ''
-    },
-    dataCreate: {
+    dateOrder: {
         type: Date,
         default: ''
     }
 });
 
-export const Product = mongoose.model('Product', productSchema);
+export const Order = mongoose.model('Order', orderSchema);

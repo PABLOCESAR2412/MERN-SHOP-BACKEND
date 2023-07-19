@@ -1,59 +1,50 @@
 import mongoose from 'mongoose';
-import{Categoria} from './categoria';
 
-const productSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     id: {
         type: String,
         require: true,
     },
     name: {
         type: String,
-        require: true,
+        default: ''
     },
-    descripcion: {
+    email: {
         type: String,
         default: ''
     },
-    richDescripcion: {
+    passwordHash: {
         type: String,
         default: ''
     },
-    image: {
+    street: {
         type: String,
         default: ''
     },
-    images: {
+    apartament: {
         type: String,
         default: ''
     },
-    brand: {
+    city: {
         type: String,
         default: ''
     },
-    price: {
+    zip: {
+        type: String,
+        default: ''
+    },
+    country: {
+        type: String,
+        default: ''
+    },
+    phone: {
         type: Number,
         default: ''
     },
-    category: {
-        type: Categoria,
-        default: ''
-    },
-    countlnStock: {
-        type: Number,
-        default: ''
-    },
-    rating: {
-        type: Number,
-        default: ''
-    },
-    isFeatured: {
+    isAdmin: {
         type: Boolean,
-        default: ''
-    },
-    dataCreate: {
-        type: Date,
         default: ''
     }
 });
 
-export const Product = mongoose.model('Product', productSchema);
+export const User = mongoose.model('User', userSchema);
